@@ -21,8 +21,8 @@ public class MatrixMultiplier {
 
         int[][] result = multiplyMatrices(matrixA, matrixB);
 
-        // Вывод результатов потоков
-        System.out.println("Результаты потоков:");
+        // Print thread results
+        System.out.println("Thread results:");
         for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[0].length; j++) {
                 System.out.print(result[i][j] + " ");
@@ -30,8 +30,8 @@ public class MatrixMultiplier {
             System.out.println();
         }
 
-        // Вывод результирующей матрицы
-        System.out.println("Окончательный результат:");
+        // Print final result matrix
+        System.out.println("Final result:");
         for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[0].length; j++) {
                 System.out.print(result[i][j] + " ");
@@ -87,7 +87,7 @@ public class MatrixMultiplier {
             for (int k = 0; k < matrixA[0].length; k++) {
                 sum += matrixA[row][k] * matrixB[k][column];
             }
-            System.out.println("Поток " + Thread.currentThread().getId() + ": " + sum + " (Локальное время: " + localTime + ")");
+            System.out.println("Thread " + Thread.currentThread().getId() + ": " + sum + " (Local time: " + localTime + ")");
             result[row][column] = sum;
         }
     }
