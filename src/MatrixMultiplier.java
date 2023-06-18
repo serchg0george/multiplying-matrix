@@ -19,7 +19,7 @@ public class MatrixMultiplier {
                 {3, 2, 1}
         };
 
-        int[][] result = multiplyMatrices(matrixA, matrixB);
+        int[][] result = multiplyMatrix(matrixA, matrixB);
 
 
         // Print final result matrix
@@ -32,9 +32,8 @@ public class MatrixMultiplier {
         }
     }
 
-    public static int[][] multiplyMatrices(int[][] matrixA, int[][] matrixB) {
+    public static int[][] multiplyMatrix(int[][] matrixA, int[][] matrixB) {
         int rowsA = matrixA.length;
-        int columnsA = matrixA[0].length;
         int columnsB = matrixB[0].length;
 
         int[][] result = new int[rowsA][columnsB];
@@ -57,30 +56,4 @@ public class MatrixMultiplier {
         return result;
     }
 
-    private static class MatrixMultiplierTask implements Runnable {
-        private final int[][] matrixA;
-        private final int[][] matrixB;
-        private final int[][] result;
-        private final int row;
-        private final int column;
-
-        public MatrixMultiplierTask(int[][] matrixA, int[][] matrixB, int[][] result, int row, int column) {
-            this.matrixA = matrixA;
-            this.matrixB = matrixB;
-            this.result = result;
-            this.row = row;
-            this.column = column;
-        }
-
-        @Override
-        public void run() {
-            Date localTime = new Date();
-            int sum = 0;
-            for (int k = 0; k < matrixA[0].length; k++) {
-                sum += matrixA[row][k] * matrixB[k][column];
-            }
-            System.out.println("Thread " + Thread.currentThread().getId() + ": " + sum + " (Local time: " + localTime + ")");
-            result[row][column] = sum;
-        }
-    }
 }
