@@ -47,12 +47,6 @@ public class MatrixMultiplier {
         }
 
         executor.shutdown();
-        try {
-            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         return result;
     }
 
