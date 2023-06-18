@@ -21,14 +21,6 @@ public class MatrixMultiplier {
 
         int[][] result = multiplyMatrices(matrixA, matrixB);
 
-        // Print thread results
-        System.out.println("Thread results:");
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result[0].length; j++) {
-                System.out.print(result[i][j] + " ");
-            }
-            System.out.println();
-        }
 
         // Print final result matrix
         System.out.println("Final result:");
